@@ -1,14 +1,14 @@
 import mongoose from 'mongoose';
-
+import config from '../config/config'
 // mdb  = conection methos mongoose
 let database: mongoose.Connection;
 
 export const connect = async()=>{
-    const  URI = "mongodb://localhost/seminary";
+    
     if(database){
         return console.log('DATABASE NO CONECTED - ERROR');
     }
-      mongoose.connect(URI, {
+      mongoose.connect(config.DB.URI, {
         useNewUrlParser: true,
         useFindAndModify: true,
         useUnifiedTopology: true,
